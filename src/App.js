@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import TaskForm from './components/TaskForm';
+import TaskList from './components/TaskList';
+import {
+  Container,
+  Typography,
+  Paper,
+  Box,
+  IconButton,
+} from '@mui/material';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
-function App() {
+function App({ toggleTheme, mode }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Container maxWidth="sm" sx={{ mt: 5 }}>
+      <Paper elevation={3} sx={{ p: 4, borderRadius: 2, position: 'relative' }}>
+        <IconButton
+          onClick={toggleTheme}
+          sx={{ position: 'absolute', top: 16, right: 16 }}
+          color="inherit"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
+        </IconButton>
+        <Typography variant="h4" gutterBottom align="center" color="primary">
+          Task Manager
+        </Typography>
+        <Box sx={{ mt: 2 }}>
+          <TaskForm />
+          <TaskList />
+        </Box>
+      </Paper>
+    </Container>
   );
 }
 
