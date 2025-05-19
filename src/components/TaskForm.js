@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../features/tasks/taskSlice';
 import { TextField, Button, Box } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 const TaskForm = () => {
   const [input, setInput] = useState('');
@@ -25,6 +26,7 @@ const TaskForm = () => {
         fullWidth
       />
       <Button type="submit" variant="contained" color="primary">
+        <AddIcon/>
         Add
       </Button>
     </Box>

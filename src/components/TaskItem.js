@@ -24,7 +24,7 @@ const TaskItem = ({ task }) => {
           edge="end"
           aria-label="delete"
           onClick={() => dispatch(deleteTask(task.id))}
-          color="error"
+          color="secondary"
         >
           <DeleteIcon />
         </IconButton>
